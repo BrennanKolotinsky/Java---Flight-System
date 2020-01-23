@@ -63,7 +63,7 @@ public class Test {
 			try {
 				JSONObject ord = (JSONObject) a.get(ordName);
 				String location = (String) ord.get("destination");
-				Order latestOrder = new Order(location);
+				Order latestOrder = new Order(location, index);
 				latestOrder.assignFlight(trackedFlights, location);
 				System.out.println(latestOrder);	
 				totalAdded++;

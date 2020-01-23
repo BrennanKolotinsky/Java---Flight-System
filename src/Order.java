@@ -16,9 +16,9 @@ public class Order {
 	static int ordersYYE = 0;
 	static int ordersYVR = 0;
 	
-	public Order(String orderDestination) {
-		totalOrders++; // increment the orders
-		orderNum = totalOrders;
+	public Order(String orderDestination, int orderNumber) {
+		totalOrders++; // increment the total orders
+		orderNum = orderNumber;
 		destination = orderDestination;
 		
 		// increment the orders for each location
