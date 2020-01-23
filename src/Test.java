@@ -10,12 +10,12 @@ public class Test {
 	
 	// let's build the project out of our flights class -- add those throws to skip adding try/catch to our parser
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
-		createFlightsPart1();
-		createFlightsPart2();
+		createFlights();
+		createOrders();
 	}
 	
 	// PART 1:
-	public static void createFlightsPart1() {
+	public static void createFlights() {
 		// let's create our flight objects
 		Flight aFlight1 = new Flight(1, "YUL", "YYZ");
 		Flight aFlight2 = new Flight(1, "YUL", "YYC");
@@ -39,10 +39,34 @@ public class Test {
 	}
 	
 	// PART 2:
-	public static void createFlightsPart2() throws FileNotFoundException, IOException, ParseException {
+	public static void createOrders() throws FileNotFoundException, IOException, ParseException {
 		// code based off https://stackoverflow.com/questions/10926353/how-to-read-json-file-into-java-with-simple-json-library --> note I threw the JSON in an array for simplicity
 		JSONParser parser = new JSONParser();
-		JSONArray a = (JSONArray) parser.parse(new FileReader("/Users/brennan/eclipse-workspace/Java/FlightSystem/src/coding-assigment-orders.json"));
-
+		JSONObject a = (JSONObject) parser.parse(new FileReader("/Users/brennan/eclipse-workspace/Java/FlightSystem/src/coding-assigment-orders.json"));
+		
+		int totalAdded = 0;
+		
+		// let's loop through each of these orders and create a new order object
+		for (int index = 1; totalAdded < a.size(); index++) {
+			String ordName = "order-";
+			
+			// setup the appropriate string for the order name
+			if (index < 10) {
+				ordName = ordName + "00" + index;
+			} else if (index < 100) {
+				ordName = ordName + "0" + index;
+			} else if (index < 1000) {		
+				ordName = ordName + index;
+			}
+			
+			try {
+				JSONObject ord = (JSONObject) a.get(ordName);
+				String location = (String) ord.get("destination");
+				totalAdded++;
+				System.out.println(index + " " + location);	
+			} catch (NullPointerException ne) {
+				System.out.println("No order for " + index);	
+			}
+		}
 	}
 }

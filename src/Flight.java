@@ -12,7 +12,7 @@ public class Flight extends Flights {
 	public Flight(int day, String dep, String arrival) {
 		super(); // create the flights class
 		
-		totalFlights = totalFlights + 1; // increase the static total flights -- every object can access this method
+		totalFlights++; // increase the static total flights -- every object can access this method
 		flightNum = totalFlights; // set the flight num based on the number of flights
 		capacity = 20;
 		dayOfFlight = day;

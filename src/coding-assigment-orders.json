@@ -1,4 +1,4 @@
-[{
+{
     "order-001": {
         "destination" : "YYZ"
     },
@@ -196,4 +196,4 @@
     },"order-099": {
         "destination" : "YVR"
     }
-}]
+}
