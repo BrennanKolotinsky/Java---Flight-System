@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 
 public class Test {
-	ArrayList<Flight> Flights;
 	
 	// let's build the project out of our flights class
 	public static void main(String[] args) {
-		System.out.println("Here");
 		
 		// let's create our flight objects
 		Flight aFlight1 = new Flight(1, "YUL", "YYZ");
@@ -18,5 +16,14 @@ public class Test {
 		System.out.println(aFlight6.getDepart());
 		
 		// now let's create a flights object and put them all together
+		ArrayList<Flight> FlightsToAdd = new ArrayList<Flight>();
+		FlightsToAdd.add(aFlight1);
+		FlightsToAdd.add(aFlight2);
+		FlightsToAdd.add(aFlight3);
+		FlightsToAdd.add(aFlight4);
+		FlightsToAdd.add(aFlight5);
+		FlightsToAdd.add(aFlight6);
+		
+		
 	}
 }

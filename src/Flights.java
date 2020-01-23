@@ -5,37 +5,23 @@ public class Flights {
 	//creating array lists to hold the Flight objects
 	ArrayList<Flight> Flights;
 	static int totalFlights;
-	
-	// let's build the project out of our flights class -- then call the flight constructor and use that to build each flight
-//	public static void main(String[] args) {
-//		// make a new flight
-//		//List<> flight1 = 
-//		//List< Tuple <Integer, String, Bool> listOfTuple;
-//		Flight aFlight = new Flight(aFlight);
-//		
-//		
-//		System.out.println("Here2");
-//		
-//		
-//		//Flights aFlight = new Flights(1, "YUL", "YYZ");
-//	}
-//	
+
+	// default way of creating the class
 	public Flights() {
-		System.out.println("here");
-		//addFlight(1, "YUL", "YYZ");
+	}
+	
+	// creating the class by explicitly calling it and placing and the flights into it
+	public Flights(ArrayList<Flight> FlightsToAdd) {
+		Flights = FlightsToAdd;
+	}
+	
+	public String toString() {
+		return "";
 	}
 	
 	
-	
-	
-	
-//	public Flights(int day, String dep, String arrival) {
-//		addFlight(day, dep, arrival);
-//		System.out.println("here");
-//	}
-	
-	public void addFlight(int day, String dep, String arrival) {
+//	public void addFlight(int day, String dep, String arrival) {
 		//Flight aSimpleFlight = new Flight(day, dep, arrival);
 //		Flights.add(aFlight);	
-	}
+//	}
 }

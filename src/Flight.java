@@ -10,8 +10,8 @@ public class Flight extends Flights {
 	
 	// constructor to create singular flight
 	public Flight(int day, String dep, String arrival) {
-		// super(totalFlights); //inherited
-		//super();
+		super(); // create the flights class
+		
 		totalFlights = totalFlights + 1; // increase the static total flights -- every object can access this method
 		flightNum = totalFlights; // set the flight num based on the number of flights
 		capacity = 20;
@@ -41,7 +41,7 @@ public class Flight extends Flights {
 		this.dayOfFlight = day;
 	}
 
-	public String getDay() {
+	public int getDay() {
 		return dayOfFlight;
 	}
 	
