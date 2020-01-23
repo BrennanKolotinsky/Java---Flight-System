@@ -45,4 +45,7 @@ public class Flight extends Flights {
 		return dayOfFlight;
 	}
 	
+	public String toString() {
+		return "Flight: " + flightNum + ", departure: " + departCode + ", arrival: " + arrivalCode + ", day: " + dayOfFlight;
+	}
 }

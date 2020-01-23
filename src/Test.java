@@ -12,10 +12,8 @@ public class Test {
 		Flight aFlight4 = new Flight(2, "YUL", "YYZ");
 		Flight aFlight5 = new Flight(2, "YUL", "YYC");
 		Flight aFlight6 = new Flight(2, "YUL", "YVR");
-		
-		System.out.println(aFlight6.getDepart());
-		
-		// now let's create a flights object and put them all together
+				
+		// now let's create a flights object and put them all together -- there is likely an easier way to do this with a loop or by using a super, but it works so I'll just stick with it for now.
 		ArrayList<Flight> FlightsToAdd = new ArrayList<Flight>();
 		FlightsToAdd.add(aFlight1);
 		FlightsToAdd.add(aFlight2);
@@ -23,6 +21,10 @@ public class Test {
 		FlightsToAdd.add(aFlight4);
 		FlightsToAdd.add(aFlight5);
 		FlightsToAdd.add(aFlight6);
+		
+		// pass in our array list of flights and construct a flights class
+		Flights flights1 = new Flights(FlightsToAdd);
+		flights1.printAllFlights();
 		
 		
 	}
