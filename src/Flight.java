@@ -52,6 +52,10 @@ public class Flight extends Flights {
 		return capacityAvailable;
 	}
 	
+	public int getFlightNum() {
+		return flightNum;
+	}
+	
 	public String toString() {
 		return "Flight: " + flightNum + ", departure: " + departCode + ", arrival: " + arrivalCode + ", day: " + dayOfFlight;
 	}

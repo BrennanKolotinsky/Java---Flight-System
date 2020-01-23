@@ -51,7 +51,7 @@ public class Order {
 					aFlight.setCap(aFlight.getCap() - 1); // reduce our capacity by one
 					setAssigned(true);
 					setDate(aFlight.getDay()); // let's cast the date to a string that way we can set it to not scheduled
-					setFlightNum(String.valueOf(aFlight.getDay()));
+					setFlightNum(String.valueOf(aFlight.getFlightNum()));
 					setDepartureCity(aFlight.getDepart());
 					return true;
 				}
