@@ -4,7 +4,7 @@ public class Flight extends Flights {
 	static int totalFlights = 0; //start with zero flights
 	int flightNum;
 	int dayOfFlight;
-	int capacity;
+	int capacityAvailable = 20;
 	String departCode;
 	String arrivalCode;
 	
@@ -14,7 +14,6 @@ public class Flight extends Flights {
 		
 		totalFlights++; // increase the static total flights -- every object can access this method
 		flightNum = totalFlights; // set the flight num based on the number of flights
-		capacity = 20;
 		dayOfFlight = day;
 		departCode = dep;
 		arrivalCode = arrival;
@@ -43,6 +42,14 @@ public class Flight extends Flights {
 
 	public int getDay() {
 		return dayOfFlight;
+	}
+	
+	public void setCap(int newCap) {
+		this.capacityAvailable = newCap;
+	}
+
+	public int getCap() {
+		return capacityAvailable;
 	}
 	
 	public String toString() {

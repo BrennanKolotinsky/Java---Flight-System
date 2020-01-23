@@ -10,12 +10,12 @@ public class Test {
 	
 	// let's build the project out of our flights class -- add those throws to skip adding try/catch to our parser
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
-		createFlights();
-		createOrders();
+		Flights trackedFlights = createFlights();
+		createOrders(trackedFlights); // let's pass our flights to our orders so we can set orders up with specific flights
 	}
 	
 	// PART 1:
-	public static void createFlights() {
+	public static Flights createFlights() {
 		// let's create our flight objects
 		Flight aFlight1 = new Flight(1, "YUL", "YYZ");
 		Flight aFlight2 = new Flight(1, "YUL", "YYC");
@@ -36,10 +36,11 @@ public class Test {
 		// pass in our array list of flights and construct a flights class
 		Flights flights1 = new Flights(FlightsToAdd);
 		flights1.printAllFlights();
+		return flights1;
 	}
 	
 	// PART 2:
-	public static void createOrders() throws FileNotFoundException, IOException, ParseException {
+	public static void createOrders(Flights trackedFlights) throws FileNotFoundException, IOException, ParseException {
 		// code based off https://stackoverflow.com/questions/10926353/how-to-read-json-file-into-java-with-simple-json-library --> note I threw the JSON in an array for simplicity
 		JSONParser parser = new JSONParser();
 		JSONObject a = (JSONObject) parser.parse(new FileReader("/Users/brennan/eclipse-workspace/Java/FlightSystem/src/coding-assigment-orders.json"));
@@ -62,8 +63,11 @@ public class Test {
 			try {
 				JSONObject ord = (JSONObject) a.get(ordName);
 				String location = (String) ord.get("destination");
+				Order latestOrder = new Order(location);
+				latestOrder.assignFlight(trackedFlights, location);
+				System.out.println(latestOrder);	
 				totalAdded++;
-				System.out.println(index + " " + location);	
+				// System.out.println(index + " " + location);	
 			} catch (NullPointerException ne) {
 				System.out.println("No order for " + index);	
 			}

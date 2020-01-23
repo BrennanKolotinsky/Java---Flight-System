@@ -23,6 +23,10 @@ public class Flights {
 		}
 	}
 	
+	public ArrayList<Flight> getFlights() {
+		return FlightsStored;
+	}
+	
 	public String toString() {
 		return "";
 	}
